@@ -1,19 +1,8 @@
-image: java:8
-
-stages:
-  - build
-  - deploy
-
-build:
-  stage: build
-  script: ./mvnw package
-  artifacts:
-    paths:
-      - target/service-0.0.1-SNAPSHOT.jar
-
-deploy:
-  stage: deploy
+development:
+  type: deploy
+  environment: production
   script:
+    - ./mvnw package
     - mkdir ~/.aws/
     - touch ~/.aws/credentials
     - printf "[eb-cli]\naws_access_key_id = %s\naws_secret_access_key = %s\n" "$AWS_ACCESS_KEY_ID" "$AWS_SECRET_ACCESS_KEY" >> ~/.aws/credentials
