@@ -1,6 +1,17 @@
+stages:
+  - build
+  - deploy
+
+build:
+  image: maven:3-jdk-8
+  stage: build
+  script: "mvn package -B"
+  artifacts:
+    paths:
+      - target/*.jar
+
 development:
-  type: deploy
-  environment: production
+  stage: deploy
   script:
     - mkdir ~/.aws/
     - touch ~/.aws/credentials
