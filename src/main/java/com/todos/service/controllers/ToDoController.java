@@ -4,9 +4,9 @@ import com.todos.service.model.ToDo;
 import com.todos.service.response.ToDoResource;
 import com.todos.service.response.ToDoResourceCollection;
 import com.todos.service.services.ToDoService;
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.kafka.core.KafkaTemplate;
+//import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
@@ -16,8 +16,8 @@ import java.util.ArrayList;
 public class ToDoController {
     private ToDoService toDoService;
 
-    @Autowired
-    private KafkaTemplate<Object, Object> template;
+//    @Autowired
+//    private KafkaTemplate<Object, Object> template;
 
     public ToDoController(ToDoService toDoService) {
         this.toDoService = toDoService;
@@ -59,7 +59,6 @@ public class ToDoController {
         model.setText(text);
         toDoService.update(model);
 
-        this.template.send("topic1", todoText);
 
         return this.getResponse();
     }
