@@ -3,9 +3,10 @@ stages:
   - deploy
 
 build:
-  image: maven:3-jdk-8
+  image: java:8
   stage: build
-  script: "mvn package -B"
+  script:
+    - ./mvnw package
   artifacts:
     paths:
       - target/*.jar
