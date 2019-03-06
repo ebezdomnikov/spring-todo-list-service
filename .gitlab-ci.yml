@@ -1,5 +1,3 @@
-development:
-  type: deploy
 image: java:8
 
 stages:
