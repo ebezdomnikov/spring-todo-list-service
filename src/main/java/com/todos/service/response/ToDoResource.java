@@ -11,11 +11,11 @@ public class ToDoResource {
     }
 
     public String getId() {
-        return model.getId();
+        return model.getId().toString();
     }
 
     public String getText() {
-        return model.getText();
+        return model.getText().toString();
     }
 
     public boolean isDone() {

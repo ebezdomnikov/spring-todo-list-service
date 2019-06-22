@@ -11,4 +11,6 @@ public interface ToDoService <T> {
     void update(T item);
 
     T find(String id);
+
+    boolean delete (String id);
 }

@@ -14,7 +14,7 @@ public class MemoryToDoServiceImpl implements ToDoService<ToDo> {
 
     @Override
     public void save(ToDo item) {
-        items.put(item.getId(), item);
+        items.put(item.getId().toString(), item);
     }
 
     @Override
@@ -23,7 +23,16 @@ public class MemoryToDoServiceImpl implements ToDoService<ToDo> {
     }
 
     @Override
+    public boolean delete(String id) {
+        if (!items.containsKey(id)) {
+            throw new IllegalArgumentException("Not exists");
+        }
+        items.remove(id);
+        return true;
+    }
+
+    @Override
     public void update(ToDo item) {
-        items.replace(item.getId(), item);
+        items.replace(item.getId().toString(), item);
     }
 }

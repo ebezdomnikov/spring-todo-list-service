@@ -1,13 +1,16 @@
 package com.todos.service.model;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sun.tools.javac.comp.Todo;
+import com.todos.service.domain.ToDoId;
+import com.todos.service.domain.ToDoText;
 import org.springframework.beans.BeanUtils;
 
 import java.io.IOException;
 
 public class ToDo {
-    private String id;
-    private String text;
+    private ToDoId id;
+    private ToDoText text;
     private boolean done;
     private boolean favorite;
 
@@ -20,18 +23,18 @@ public class ToDo {
         BeanUtils.copyProperties(this, u);
     }
 
-    public ToDo(String id, String text, boolean done, boolean favorite) {
+    public ToDo(ToDoId id, ToDoText text, boolean done, boolean favorite) {
         this.id = id;
         this.text = text;
         this.done = done;
         this.favorite = favorite;
     }
 
-    public String getId() {
+    public ToDoId getId() {
         return id;
     }
 
-    public String getText() {
+    public ToDoText getText() {
         return text;
     }
 
@@ -43,7 +46,7 @@ public class ToDo {
         return favorite;
     }
 
-    public void setText(String text) {
+    public void setText(ToDoText text) {
         this.text = text;
     }
 
